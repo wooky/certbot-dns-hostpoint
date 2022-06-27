@@ -235,7 +235,7 @@ class Authenticator(DNSAuthenticator):
     @classmethod
     def add_parser_arguments(cls, add: Callable[..., None]) -> None:  # type: ignore[override]
         super(DNSAuthenticator, cls).add_parser_arguments(add)
-        add("credentials", "Hostpoint credentials INI file.")
+        add("credentials", help="Hostpoint credentials INI file.")
 
     def more_info(self) -> str:
         return "This plugin configure a DNS TXT record to respond to a dns-01 challenge using the Hostpoint API"
