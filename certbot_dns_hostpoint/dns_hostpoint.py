@@ -233,8 +233,8 @@ class Authenticator(DNSAuthenticator):
         self.hostpoint_client: Optional[_HostpointClient] = None
 
     @classmethod
-    def add_parser_arguments(cls, add: Callable[..., None]) -> None:  # type: ignore[override]
-        super(DNSAuthenticator, cls).add_parser_arguments(add)
+    def add_parser_arguments(cls, add: Callable[..., None], default_propagation_seconds: int = 30) -> None:
+        super().add_parser_arguments(add, default_propagation_seconds)
         add("credentials", help="Hostpoint credentials INI file.")
 
     def more_info(self) -> str:
@@ -249,11 +249,11 @@ class Authenticator(DNSAuthenticator):
 
     def _perform(self, domain: str, validation_name: str, validation: str) -> None:
         self._get_hostpoint_client().add_txt_record(
-            domain, validation_name, validation, self.ttl)
+            self.credentials.conf(Authenticator.CONF_DOMAIN), validation_name, validation, self.ttl)
 
     def _cleanup(self, domain: str, validation_name: str, validation: str) -> None:
         self._get_hostpoint_client().delete_txt_record(
-            domain, validation_name, validation)
+            self.credentials.conf(Authenticator.CONF_DOMAIN), validation_name, validation)
 
     def _get_hostpoint_client(self) -> _HostpointClient:
         if not self.hostpoint_client:
