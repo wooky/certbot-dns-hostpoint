@@ -1,5 +1,7 @@
 # certbot-dns-hostpoint
 
+***Unless specified otherwise, this project is supported and is under active development. Please create a ticket for bug reports or features requests.***
+
 [Hostpoint](https://www.hostpoint.ch/en/) DNS Authenticator plugin for Certbot.
 
 This plugin automates the process of completing a dns-01 challenge by creating, and subsequently removing, TXT records by manually calling Hostpoint HTTP endpoints, as Hostpoint does not have a publically accessible REST API.
