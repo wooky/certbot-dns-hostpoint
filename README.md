@@ -52,3 +52,9 @@ certbot certonly \
   -d '*.example.tld' \
   -d '*.subdomain.example.tld'
 ```
+
+## Malformed DNS record populate response: Expecting value: line 1 column 1 (char 0)
+
+If you get this error, it most likely means that Hostpoint requires you to enter a verification code. This plugin will not work until that issue is resolved.
+
+Simply log in to Hostpoint through a browser on the same IP as the plugin is run, enter the verification code, and afterwards the plugin should start working. If you're unable to run a browser from the remote host, use a SOCKS5 proxy instead.
