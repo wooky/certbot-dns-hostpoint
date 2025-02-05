@@ -1,6 +1,7 @@
-# certbot-dns-hostpoint
+***This project is no longer maintained as I am not using Hostpoint anymore. As of writing this, the plugin is working fine. Feel free to continue using it, or fork it.***
+---
 
-***Unless specified otherwise, this project is supported and is under active development. Please create a ticket for bug reports or features requests.***
+# certbot-dns-hostpoint
 
 [Hostpoint](https://www.hostpoint.ch/en/) DNS Authenticator plugin for Certbot.
 
